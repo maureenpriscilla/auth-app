@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         try {
             // backend validates token via AuthMiddleware
             const res = await client.get<User>("/me");
-            console.log("token res >>>", res)
+            
             setUser(res.data);
         } catch (err) {
             // handle invalid / expired token

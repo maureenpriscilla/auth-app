@@ -42,27 +42,3 @@ func main() {
 
 	log.Fatal(http.ListenAndServe(addr, corsMux))
 }
-
-// func main() {
-// 	// Initializes a PostgreSQL database connection
-// 	dbConn := db.NewPostgres()
-
-// 	// Creates a new Handler instance to injects the database dependency
-// 	handler := auth.NewHandler(dbConn)
-
-// 	// Creates an HTTP request multiplexer (router)
-// 	mux := http.NewServeMux()
-
-// 	// Registers endpoints
-// 	mux.HandleFunc("/api/auth/signup", handler.SignUp)
-// 	mux.HandleFunc("/api/auth/signin", handler.SignIn)
-// 	mux.Handle("/api/me", handler.AuthMiddleware(http.HandlerFunc(handler.Me)))
-
-// 	// Wrap the mux with CORS middleware
-//     corsMux := middleware.CORSMiddleware(mux)
-
-// 	// logs for dev
-// 	log.Println("Server running on :8080")
-//     log.Fatal(http.ListenAndServe("0.0.0.0:8080", corsMux))
-
-// }

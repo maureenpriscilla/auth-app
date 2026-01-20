@@ -16,9 +16,7 @@ export const SignIn = () => {
 
   const onSubmit = async (data: SignInRequest) => {
     try {
-        console.log("data >>>", data)
         const res = await client.post("/auth/signin", data);
-        console.log("res >>>", res)
         signIn(res.data.token, { email: data.email });
         navigate("/profile");
     } catch (err: any) {
