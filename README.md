@@ -117,3 +117,26 @@ The frontend runs on: http://localhost:5173
 
 ***CORS is enabled on the backend to support local development with separate ports.***
 
+---
+
+## Unittest
+
+1. Make sure users table is set up in Postgres for testing 
+2. Set environment variable (similar to backend setup)
+```bash 
+export DATABASE_URL="postgres://<username>:<password>@localhost:5432/<database>?sslmode=disable"
+```
+3. Run the test - `handler_test.go`
+```bash 
+go test -v ./internal/auth
+```
+
+Expected output: 
+```bash 
+maureenpriscilla@Maureens-MacBook-Pro backend % go test -v ./internal/auth                                                                    
+=== RUN   TestSignUpAndSignIn
+--- PASS: TestSignUpAndSignIn (0.26s)
+PASS
+ok      auth-app/internal/auth  0.514s
+maureenpriscilla@Maureens-MacBook-Pro backend % 
+```
